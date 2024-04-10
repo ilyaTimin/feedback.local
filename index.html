@@ -18,69 +18,13 @@
     }
   </style>
 <body class="bg-image">
-    <!-- <script>function validateForm() {
-       
-    
-        let email = document.getElementById("email");
-        let phone = document.getElementById("phone");
-        let name = document.getElementById("name");
-        let surname = document.getElementById("surname");
-    
-        var regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
-        var regPhone = /^(\+?\d{10,25})$/;
-        var regName = /^[a-zA-Zа-яА-Я\s\-']+$/;
-    
-        // Сбросим стили перед началом валидации
-        email.style.border = "1px solid #ccc";
-        phone.style.border = "1px solid #ccc";
-        name.style.border = "1px solid #ccc";
-        surname.style.border = "1px solid #ccc";
-
-        let testMail=regEmail.test(email.value) ;
-        let  testPhone= regPhone.test(phone.value);
-        let testSurname=regName.test(surname.value);
-        let testName= regName.test(name.value);
-    
-        if (!testMail) {
-            alert("Некорректный адрес электронной почты!");
-            email.style.border = "1px solid red";
-            
-        }
-    
-        if (!testPhone) {
-            alert("Некорректный номер телефона!");
-            phone.style.border = "1px solid red";
-            
-        }
-    
-        if (!testName) {
-            alert("Некорректное имя!");
-            name.style.border = "1px solid red";
-           
-        }
-    
-        if (!testSurname) {
-            alert("Некорректная фамилия!");
-            surname.style.border = "1px solid red";
-          
-        }
-
-        if (testMail&&testPhone&&testName&&testSurname){
-            alert("Проверка формы прошла успешно!");
-            document.getElementById("add-form").submit();
-        }else{
-return false 
-        }
-    
-        
-    }
-    </script> -->
+   
   
   <div class="container " >
     <div class="row">
       <div class="col-md-6 mx-auto my-5">
 
-    <form action="mailSend.php" class="form  " method="post" id="add-form" onsubmit="return validateForm()">
+    <!-- <form action="mailSend.php" class="form  " method="post" id="add-form" onsubmit="return validateForm()"> -->
         <div class="container-sm ">
            
             <div class="container mx-auto border border-lignt p-4 bg-light mt-4 rounded-4 ">
@@ -105,12 +49,12 @@ return false
             </div>
             <div class="mb-3 col">
                
-                <input placeholder="em@il" class="form-control rounded-pill " tabindex="4" type="email" name="mail" id="email">
+                <input placeholder="em@il" class="form-control rounded-pill " tabindex="4" type="email" name="mail" id="mail">
             </div>
             <div>
                 
                 <div>
-                    <button  class="btn btn-primary position-relative py-2 px-4 text-bg-primary border border-ptimary rounded-pill" >Отправить</button>
+                    <button  id="submit-button" onclick="validateData()" class="btn btn-primary position-relative py-2 px-4 text-bg-primary border border-ptimary rounded-pill" >Отправить</button>
                     
                 </div>
                 </div>
@@ -118,12 +62,12 @@ return false
             </div>
         
         </div>
-    </form>
+    <!-- </form> -->
     </div>
   </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="index.js"></script>
+<script src="submitFormData.js"></script>
 
 </body>
 </html>

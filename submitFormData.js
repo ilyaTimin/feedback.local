@@ -1,17 +1,21 @@
 function submitFormData() {
-    let email = document.getElementById("email").value;
-    let phone = document.getElementById("phone").value;
-    let name = document.getElementById("name").value;
-    let surname = document.getElementById("surname").value;
+    let mailInput = document.getElementById("mail");
+    let phoneInput = document.getElementById("phone");
+    let nameInput = document.getElementById("name");
+    let surnameInput = document.getElementById("surname");
 
+    let mail = mailInput.value;
+    let phone = phoneInput.value;
+    let name = nameInput.value;
+    let surname = surnameInput.value;
 
-    if (validateData(email, phone, name, surname)) {
+    if (validateData(mailInput, phoneInput, nameInput, surnameInput)) {
         // Отправка данных на сервер с помощью AJAX
         $.ajax({
             type: "POST",
             url: "http://feedback.local/saveData.php", // Укажите путь к файлу обработки на сервере
             data: {
-                email: email,
+                mail: mail,
                 phone: phone,
                 name: name,
                 surname: surname
@@ -30,18 +34,20 @@ function submitFormData() {
 
 
 
-    function validateData(email, phone, name, surname) {
-        var regEmail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+
+
+    function validateData(mail, phone, name, surname) {
+        var regMail = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
         var regPhone = /^(\+?\d{10,25})$/;
         var regName = /^[a-zA-Zа-яА-Я\s\-']+$/;
     
         // Сбросим стили перед началом валидации
-        email.style.border = "1px solid #ccc";
+        mail.style.border = "1px solid #ccc";
         phone.style.border = "1px solid #ccc";
         name.style.border = "1px solid #ccc";
         surname.style.border = "1px solid #ccc";
     
-        let testMail=regEmail.test(email.value) ;
+        let testMail=regMail.test(mail.value) ;
         let  testPhone= regPhone.test(phone.value);
         let testSurname=regName.test(surname.value);
         let testName= regName.test(name.value);
@@ -72,7 +78,7 @@ function submitFormData() {
     
         if (testMail&&testPhone&&testName&&testSurname){
             alert("Проверка формы прошла успешно!");
-            document.getElementById("add-form").submit();
+            return true
             
     
     
