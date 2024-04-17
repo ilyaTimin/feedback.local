@@ -1,15 +1,12 @@
 function submitFormData() {
-    let mailInput = document.getElementById("mail");
-    let phoneInput = document.getElementById("phone");
-    let nameInput = document.getElementById("name");
-    let surnameInput = document.getElementById("surname");
+    let mail = document.getElementById("mail");
+    let phone = document.getElementById("phone");
+    let name = document.getElementById("name");
+    let surname = document.getElementById("surname");
 
-    let mail = mailInput.value;
-    let phone = phoneInput.value;
-    let name = nameInput.value;
-    let surname = surnameInput.value;
+   
 
-    if (validateData(mailInput, phoneInput, nameInput, surnameInput)) {
+    if (validateData(mail, phone, name, surname)) {
         // Отправка данных на сервер с помощью AJAX
         $.ajax({
             type: "POST",
